@@ -1,0 +1,3 @@
+name age location
+alice 21 USA
+ryan 30 CH
