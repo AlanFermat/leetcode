@@ -10,7 +10,7 @@ def show(node):
 l1 = ListNode(1)
 l1.next = ListNode(1)
 l1.next.next = ListNode(2)
-l1.next.next.next= ListNode(1)
+l1.next.next.next= ListNode(3)
 
 
 def isPalindrome(head):
@@ -18,24 +18,26 @@ def isPalindrome(head):
 	:type head: ListNode
 	:rtype: bool
 	"""
-	curr = head
-	res = reverseList(curr)
-	show(res)
-	show(head)
-	while head:
-		if head.val != res.val:
+	if not head:
+		return True
+	slow = fast = head
+	while fast and fast.next:
+		slow = slow.next
+		fast = fast.next.next
+	stack = []
+	stack.append(slow.val)
+	slow = slow.next
+	while slow:
+		stack.append(slow.val)
+		slow = slow.next
+
+	while stack:
+		k = stack.pop()
+		if k != head.val:
 			return False
 		head = head.next
-		res = res.next
 	return True
-	
-def reverseList(head):
-	prev, curr = None, head
-	while curr:
-		temp = curr.next
-		curr.next = prev
-		prev = curr
-		curr = temp 
-	return prev
 
 print (isPalindrome(l1))
+
+
