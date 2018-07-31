@@ -10,3 +10,10 @@ def show(node):
 		temp.append(str(node.val))
 		node = node.next
 	print ("->".join(temp))
+
+def build(l):
+	d = node = ListNode(0)
+	while l:
+		node.next = ListNode(l.pop(0))
+		node = node.next
+	return d.next
