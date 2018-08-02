@@ -6,6 +6,7 @@ from heapq import *
 heap = []
 heappush(heap, 1)
 heappush(heap, 3)
+heappush(heap, 3)
 heappush(heap, -1)
 print (len(heap))
 print (heappop(heap))
