@@ -11,7 +11,7 @@ def findAnagrams(s, p):
 	n = len(p)
 	count = 0
 	print (temp1)
-	for j in range(len(s)):
+	for j in range(len(s)):`
 		temp2[ord(s[j]) - 97] += 1
 		count += 1
 
