@@ -17,4 +17,4 @@ def countSmaller(nums):
 	return left + right
 
 a = [1,2,3,4,5]
-print (bisect_right(a,2))
+print (bisect_left(a,0))
