@@ -55,7 +55,7 @@ def findLadders(beginWord, endWord, wordList):
 	return ans
 
 beginWord = "hit"
-endWord = "cog"
+endWord = "dot"
 wordList = ["hot","dot","dog","lot","log","cog"]
 print (findLadders(beginWord, endWord, wordList))
 

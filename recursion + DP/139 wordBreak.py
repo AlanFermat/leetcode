@@ -12,13 +12,9 @@ def wordBreak(s,wordDict):
 					d[i] = True
 				if d[i] == True:
 					break
-			print d
-		if d[n-1] == True:
-			return True
-		else:
-			return False
+		return d[n-1]
 				
 
-w = []
-s = "a"
+w = ["leet","code"]
+s = "leetcode"
 print wordBreak(s,w)
