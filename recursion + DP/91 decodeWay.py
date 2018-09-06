@@ -1,36 +1,34 @@
-def decode(s):
-	if not s or s.find("00") >=0 or s == "0":
+def numDecodings(s):
+	"""
+	:type s: str
+	:rtype: int
+	"""
+	string = s
+	# If the string is empty or begins with a '0', it has no valid decoding.
+	if not string or string[0] == '0':
 		return 0
-	l = list(s)
-	m = len(s)
-	idx = 0
-	while idx < m-1:
-		if idx == 0 and not int(l[idx]):
-			return 0
-		elif not int(l[idx+1]):
-			if l[idx] not in ["1","2"]:
-				return 0
-			del l[idx+1]
-			del l[idx]
-			m -= 2
+
+	k_1 = 1
+	
+	k_2 = 1
+	for i in range(1, len(string)):
+		# If we encounter a zero, there are no valid one-character decodings at this position.
+		if string[i] == '0':
+			k_1 = 0
+		
+		# If we can decode a value between 10 and 26, there's also a valid two character decoding. So,
+		# the current character has k_1 + k_2 decodings, and the old k_1 becomes k_2
+		if string[i - 1] == '1' or string[i-1] == '2' and 0 <= int(string[i]) <= 6:
+			k_1 = k_2 + k_1
+			k_2 = k_1 - k_2
+		
+		# There's no valid two character decoding (i.e. '40'), so the old k_1 becomes k_2.
 		else:
-			idx += 1
-	if l:
-		st = "".join(l)
-		n =  len(st)
-		dp = [[0 for _ in range(n)] for _ in range(n)]
-		for i in range(n):
-			dp[i][i] = 1
-		for i in range(n-1):
-			dp[i][i+1] = dp[i][i] + (0< int(st[i:i+2]) < 27)
-		for i in range(n-1, -1, -1):
-			for j in range(i+2, n):
-				dp[i][j] += dp[i][j-1]
-				if 0< int(st[j-1:j+1]) < 27:
-					dp[i][j] += dp[i][j-2]
-		return dp[0][n-1]
+			k_2 = k_1
+
+	return k_1
 
 	
-s = "00"
-print (decode(s))
+s = "50"
+print (numDecodings(s))
 
