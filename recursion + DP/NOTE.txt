@@ -1,0 +1,6 @@
+Top down: Memoizatation - solve the problem in natural order by recursive calls
+						All entries in the tabulets are not filled necessarily in a way such that 
+						some of the subproblems may not be solved at all
+
+Bottom-up: Tabulation (Table filling problem) - solve it from the smaller subproblem then larger one
+						every subproblem must be solved at least once
