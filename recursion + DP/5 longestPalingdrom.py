@@ -46,4 +46,4 @@ def longestPalindrome(string):
 				end = j
 	return string[start:end+1], maxLen
 
-print longestPalindrome("cadbbda")
+print (longestPalindrome("abcba"))

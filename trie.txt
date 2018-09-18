@@ -1,0 +1,2 @@
+iterable object (string, array) syntax will return the empty iterable object
+ if the index out of range

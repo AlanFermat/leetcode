@@ -23,6 +23,7 @@ def partition(seq, lo, hi):
 
 
 def quickSort(seq, lo, hi):
+	# O(n log n)
 	if lo < hi:
 		# pivot = randint(lo, hi)
 		# temp = seq[hi]
@@ -37,3 +38,4 @@ def quickSort(seq, lo, hi):
 seq= [123300,2,1,111,22,92,4,6,9,1,2,3,4,2,11111111]
 quickSort(seq,0,len(seq)-1)
 print seq
+

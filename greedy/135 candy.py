@@ -18,3 +18,6 @@ def candy(ratings):
                 temp[idx] = temp[idx+1]+1
         idx -= 1
     return sum(temp)
+
+ratings = [-1,-8,10,1,0,9]
+print (candy(ratings))
