@@ -1,6 +1,6 @@
 def decode(s):
 	n = len(s)
-	idx= 0
+	idx = 0
 	stack = []
 	stack.append(["",1])
 	num = ""
@@ -18,5 +18,5 @@ def decode(s):
 		idx += 1
 	return stack[-1][0]
 
-s =  "2[a]12[abs4[r]]"
-print decode(s)
+s =  "2[aa]"
+print (decode(s))

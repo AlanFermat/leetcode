@@ -28,15 +28,15 @@ def minCostII(costs):
 	
 	for idx in range(1,n):
 		min_val, min_col = getMin(dp[idx-1])
+		getVal = getMinExclude(dp[idx-1], min_col)
 		for col in range(k):
 			if col != min_col:
 				dp[idx][col] = costs[idx][col] + min_val
 			else:
-				dp[idx][col] = getMinExclude(dp[idx-1], col) + costs[idx][col]
-	print (dp)
+				dp[idx][col] =  getVal + costs[idx][col]
 	return min(dp[n-1])
 
 
 costs = [[15,17,15,20,7,16,6,10,4,20,7,3,4],[11,3,9,13,7,12,6,7,5,1,7,18,9]]
 
-minCostII(costs)
+print (minCostII(costs))
