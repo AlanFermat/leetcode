@@ -1,39 +1,39 @@
 def divide(numerator, denominator):
-	if denominator == 0:
-		return
 	if denominator == 1:
 		return str(numerator)
-	if numerator * denominator < 0:
+	res = ""
+	if numerator * denominator < 0 :
 		res = "-"
 		numerator = abs(numerator)
 		denominator = abs(denominator)
-	else:
-		res = ""
-	res += str(numerator // denominator)
+	divisor = numerator // denominator
 	remainder = numerator % denominator
-	if remainder == 0:
-		return res
+	if not remainder:
+		return res + str(divisor)
+	res += str(divisor)
 	res += "."
 	seen_divisor = {}
-	idx = 0
 	digits = []
+	idx = 0
 	while remainder:
 		next_num = remainder * 10
-		divisor = next_num // denominator
-		next_rem = next_num % denominator
-		if seen_divisor.get((divisor, next_rem)) is None:
-			seen_divisor[(divisor, next_rem)] = idx
+		next_divisor = next_num // denominator
+		next_rem  = next_num % denominator
+		if (next_divisor, next_rem) not in seen_divisor:
+			digits.append(str(next_divisor))
+			seen_divisor[(next_divisor, next_rem)] = idx
 			remainder = next_rem
-			digits.append(str(divisor))
 			idx += 1
 		else:
-			single_part = ''.join(digits[:seen_divisor[(divisor, next_rem)]])
-			repeat_part = '(' + ''.join(digits[seen_divisor[(divisor, next_rem)]:]) + ')'
-			return res + single_part + repeat_part
-	single_part = ''.join(digits)
-	return res + single_part
+			not_rec_digits = ''.join(digits[:seen_divisor[(next_divisor, next_rem)]])
+			rec_digits = '(' + ''.join(digits[seen_divisor[(next_divisor, next_rem)]:]) + ')'
+			res += not_rec_digits + rec_digits
+			return res
+	not_rec_digits = ''.join(digits)
+	res += not_rec_digits
+	return res
 
-print (divide(11, 7))
+print (divide(-50, 8))
 
 
 
