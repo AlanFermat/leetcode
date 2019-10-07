@@ -30,7 +30,7 @@ def solve(words):
 				
 	
 
-words = ["abcd","dcba","lls","s","sssll"]
+words = ["abcd","dcba","lls","s","sssll",""]
 expected = [[0,1],[1,0],[3,2],[2,4]] 
 print (solve(words))
 

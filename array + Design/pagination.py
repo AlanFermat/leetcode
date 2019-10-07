@@ -8,7 +8,6 @@ def solve(info, pageSize):
 	hosts = set()
 	count = 0
 	ttl_size = 0
-	p = 0
 	reachEnd = False
 	while True:
 		cur = info[idx]
